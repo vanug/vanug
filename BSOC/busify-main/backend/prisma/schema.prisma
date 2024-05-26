@@ -1,0 +1,75 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x", "linux-musl", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Users {
+    id        String   @id
+    email     String   @unique
+    name      String
+    picture   String
+    role      String   @default("user")
+    createdAt DateTime @default(now())
+    orders    Order[] // One-to-Many relationship with Order model
+}
+
+model Bus {
+    number       String     @id
+    capacity     Int
+    contractor   Contractor @relation(fields: [contractorId], references: [id])
+    contractorId String
+    conductor    Conductor  @relation(fields: [conductorId], references: [id])
+    conductorId  String
+    schedules    Schedule[] // One-to-Many relationship with Schedule model
+}
+
+model Schedule {
+    id            String   @id
+    busNumber     String
+    bus           Bus      @relation(fields: [busNumber], references: [number])
+    checkpoints   String[]
+    from          String
+    to            String
+    departureTime String
+    days          String[]
+    ticketPrice   Int
+}
+
+model Ticket {
+    id             String @id
+    orderId        String @unique
+    passengerEmail String
+}
+
+model Order {
+    id         String   @id
+    userId     String
+    scheduleId String
+    status     String   @default("pending") // how to make this enum
+    amount     Int
+    attempts   Int      @default(0)
+    receipt    String   @unique
+    createdAt  DateTime @default(now())
+    user       Users    @relation(fields: [userId], references: [id])
+}
+
+model Conductor {
+    id    String @id
+    name  String
+    phone String
+    buses Bus[] // One-to-Many relationship with Bus model
+}
+
+model Contractor {
+    id      String @id
+    name    String
+    email   String @unique
+    phone   String
+    address String
+    buses   Bus[] // One-to-Many relationship with Bus model
+}

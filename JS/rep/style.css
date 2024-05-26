@@ -1,0 +1,25 @@
+*{
+    padding: 0%;
+    margin:0%;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+
+.can{
+    height: 700px;
+    width: 700px;
+    background-color: brown;
+    
+}
+.av{
+    height: 5%;
+    width: 5%;
+    background-color: yellowgreen;
+    /* margin-top: 49%;
+    margin-left: 49%; */
+}
