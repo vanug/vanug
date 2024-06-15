@@ -5,7 +5,7 @@ import TodoForm from './component/TodoForm'
 import TodoItem from './component/TodoItem'
 
 function App() {
- const [todos,setTodos]=useState({})
+ const [todos,setTodos]=useState([])
  
 const addTodo=(todo)=>{
     setTodos((prev)=>[{id:Date.now(),...todo},...prev])
