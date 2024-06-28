@@ -53,7 +53,7 @@ export default function Weather() {
         </button>
       </div>
       {loading ? (
-        <div className="text-6xl font-extrabold text-black">Loading...</div>
+        <div className="text-5xl font-extrabold text-black">Loading...</div>
       ) : (
         weatherData && (
           <div>
