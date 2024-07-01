@@ -18,7 +18,7 @@ function Navbar() {
                 <div className="px-2">Store</div>
                 <div className="px-2">Live TV</div>
                 <div className="px-2">Categories</div>
-                <NavLink to="/wishlist" className="px-2">Wishlist</NavLink>
+                <NavLink to="/MyStuff" className="px-2">MyStuff</NavLink>
             </div>
             <div className="flex gap-4">
                     <FontAwesomeIcon icon={faSearch} className="text-gray-300 cursor-pointer" />
