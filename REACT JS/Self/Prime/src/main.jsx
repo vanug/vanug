@@ -15,7 +15,7 @@ const router =createBrowserRouter(
     <Route path='/' element={<App/>}>
       
       <Route path='' element={<Home/>}/>
-      <Route path='/MyStuff' element={<MyStuff/>}/>
+      <Route path='/MyStuff' className='bg-black' element={<MyStuff/>}/>
       
     </Route>
    

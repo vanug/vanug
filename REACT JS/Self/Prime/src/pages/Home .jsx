@@ -7,7 +7,7 @@ import Row5 from '../components/Row/Row5'
 
 function Home () {
     return (
-    <div className="container mx-auto overflow-x-scroll">
+    <div className="container bg-black mx-auto overflow-x-scroll">
         <Row1 rowTitle="TV shows we think you'll like" />
         <Row2  rowTitle="Top TV"/>
         <Row3  rowTitle="Filmfare OTT Award Winners "/>
