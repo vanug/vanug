@@ -14,7 +14,7 @@ function handleAddToMyStuff(getCurrentItem){
     if(index === -1) {
         cpySavedList.push(getCurrentItem)
       } else {
-        cpySavedList.splice(index)
+        cpySavedList.splice(index,1)
       }
   
       setSavedList(cpySavedList)
@@ -26,7 +26,8 @@ function handleAddToMyStuff(getCurrentItem){
         <GlobalContext.Provider
           value={{
             savedList,
-            handleAddToMyStuff
+            handleAddToMyStuff,
+            setSavedList
           }}
         >
           {children}

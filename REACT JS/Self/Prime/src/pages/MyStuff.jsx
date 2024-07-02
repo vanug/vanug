@@ -1,9 +1,23 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect} from 'react'
 import { GlobalContext } from '../context/Context'
 import Banner from '../components/Banner'
 
+
 function MyStuff() {
-    const { savedList } = useContext(GlobalContext);
+    const { savedList,setSavedList } = useContext(GlobalContext);
+
+    useEffect(() => {
+        const  savedList = JSON.parse(localStorage.getItem("savedList"))
+    
+        if ( savedList &&  savedList.length > 0) {
+        setSavedList( savedList)
+        }
+      }, [])
+
+      useEffect(() => {
+        localStorage.setItem('savedList', JSON.stringify(savedList));
+    }, [savedList]);
+
     return (
         <div className='bg-black min-h-screen overflow-y-scroll'>
         <div className=" mt-14 mx-10">
